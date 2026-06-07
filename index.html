@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玉石性格测评测试</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑",sans-serif;}
+        body{background:#f7f3ee;padding:20px;max-width:820px;margin:0 auto;}
+        .wrap{background:#fff;padding:25px;border-radius:14px;box-shadow:0 3px 15px #e6dfd5;}
+        .title{text-align:center;font-size:24px;color:#593e2c;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid #eee;}
+        .item{margin-bottom:26px;padding-bottom:20px;border-bottom:1px solid #f1ece4;}
+        .q-text{font-size:17px;color:#333;margin-bottom:12px;line-height:1.6;}
+        .opt{margin:9px 0;padding:11px 14px;border:1px solid #dcd4ca;border-radius:9px;cursor:pointer;transition:0.25s;}
+        .opt:hover{border-color:#a97e5e;background:#fcf8f3;}
+        .opt.active{background:#a97e5e;color:#fff;border-color:#a97e5e;}
+        #subBtn{width:100%;padding:14px;background:#91684c;border:none;border-radius:10px;color:#fff;font-size:17px;margin-top:10px;cursor:pointer;}
+        #subBtn:hover{background:#7c573f;}
+        #resultBox{margin-top:30px;padding:22px;border:1px solid #e0d5ca;border-radius:12px;background:#fcf8f3;display:none;}
+        .res-title{font-size:20px;color:#724e36;margin-bottom:12px;font-weight:bold;}
+        .res-desc{line-height:1.7;color:#444;margin-bottom:15px;white-space:pre-line;}
+        .img-box{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px;}
+        .img-box img{width:calc(25% - 8px);border-radius:8px;border:1px solid #ddd;}
+        .tip{color:#999;font-size:13px;margin-top:8px;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="title">玉石人格小测试</div>
+    <div id="allQ">
+        <!--第1题-->
+        <div class="item">
+            <div class="q-text">1.闲暇休息日，你的安排偏好？</div>
+            <div class="opt" data-sc="1">A.宅家看书品茶，独自静养(1分)</div>
+            <div class="opt" data-sc="2">B.约好友逛街探店、闲谈聚会(2分)</div>
+            <div class="opt" data-sc="3">C.投入手工/绘画等沉浸式爱好(3分)</div>
+            <div class="opt" data-sc="4">D.规划健身、学习提升日程(4分)</div>
+        </div>
+        <!--第2题-->
+        <div class="q-text">2.和人产生意见分歧时，你习惯？</div>
+            <div class="opt" data-sc="1">A.沉默回避，不想争辩(1分)</div>
+            <div class="opt" data-sc="2">B.委婉表达想法，顾及对方情绪(2分)</div>
+            <div class="opt" data-sc="3">C.换位思考，包容对方观点(3分)</div>
+            <div class="opt" data-sc="4">D.条理说理，坚持自身立场(4分)</div>
+        </div>
+        <!--第3题-->
+        <div class="item">
+            <div class="q-text">3.挑选随身配饰，第一眼倾向？</div>
+            <div class="opt" data-sc="1">A.素面极简、无雕花细款饰品(1分)</div>
+            <div class="opt" data-sc="2">B.色彩鲜亮、花样别致的款式(2分)</div>
+            <div class="opt" data-sc="3">C.圆润弧面、温润饱满的玉佩(3分)</div>
+            <div class="opt" data-sc="4">D.棱角利落、设计冷峻的玉饰(4分)</div>
+        </div>
+        <!--第4题-->
+        <div class="item">
+            <div class="q-text">4.突发临时变动打乱计划，你会？</div>
+            <div class="opt" data-sc="1">A.顺其自然，摆烂随缘(1分)</div>
+            <div class="opt" data-sc="2">B.快速调整，顺势换方案(2分)</div>
+            <div class="opt" data-sc="3">C.安抚心绪，慢慢重新规划(3分)</div>
+            <div class="opt" data-sc="4">D.立刻梳理，高效补救安排(4分)</div>
+        </div>
+        <!--第5题-->
+        <div class="item">
+            <div class="q-text">5.社交模式更贴近？</div>
+            <div class="opt" data-sc="1">A.低社交，偏爱独处慢生活(1分)</div>
+            <div class="opt" data-sc="2">B.热衷团建，喜欢热闹氛围(2分)</div>
+            <div class="opt" data-sc="3">C.小众交友，重走心浅社交(3分)</div>
+            <div class="opt" data-sc="4">D.目的性社交，择优来往(4分)</div>
+        </div>
+        <!--第6题-->
+        <div class="item">
+            <div class="q-text">6.看待新鲜事物（新潮首饰/穿搭）？</div>
+            <div class="opt" data-sc="1">A.保守观望，很少尝试(1分)</div>
+            <div class="opt" data-sc="2">B.好奇种草，愿意立马体验(2分)</div>
+            <div class="opt" data-sc="3">C.感兴趣后慢慢斟酌入手(3分)</div>
+            <div class="opt" data-sc="4">D.理性甄别，合适才接纳(4分)</div>
+        </div>
+        <!--第7题-->
+        <div class="item">
+            <div class="q-text">7.情绪低落时的排解方式？</div>
+            <div class="opt" data-sc="1">A.独处发呆，自我消化情绪(1分)</div>
+            <div class="opt" data-sc="2">B.找人倾诉吐槽，释放烦恼(2分)</div>
+            <div class="opt" data-sc="3">C.逛玉石饰品、慢逛散心(3分)</div>
+            <div class="opt" data-sc="4">D.专注做事，用行动转移情绪(4分)</div>
+        </div>
+        <!--第8题-->
+        <div class="item">
+            <div class="q-text">8.做事处事风格？</div>
+            <div class="opt" data-sc="1">A.随性散漫，顺其自然(1分)</div>
+            <div class="opt" data-sc="2">B.灵活变通，随机应变(2分)</div>
+            <div class="opt" data-sc="3">C.温和周全，照顾多方感受(3分)</div>
+            <div class="opt" data-sc="4">D.干脆利落，目标优先落地(4分)</div>
+        </div>
+        <!--第9题-->
+        <div class="item">
+            <div class="q-text">9.欣赏的自然景色？</div>
+            <div class="opt" data-sc="1">A.深山孤林、清冷湖面(1分)</div>
+            <div class="opt" data-sc="2">B.繁花山野、明媚花海(2分)</div>
+            <div class="opt" data-sc="3">C.温润溪流、林间软景(3分)</div>
+            <div class="opt" data-sc="4">D.峻岭险峰、苍茫山石(4分)</div>
+        </div>
+        <!--第10题-->
+        <div class="item">
+            <div class="q-text">10.收到礼物，你的反应？</div>
+            <div class="opt" data-sc="1">A.礼貌收下，内敛藏喜悦(1分)</div>
+            <div class="opt" data-sc="2">B.当场欣喜，直白表达开心(2分)</div>
+            <div class="opt" data-sc="3">C.细心珍藏，慢慢感念心意(3分)</div>
+            <div class="opt" data-sc="4">D.权衡回礼，处事分寸有度(4分)</div>
+        </div>
+        <!--第11题-->
+        <div class="item">
+            <div class="q-text">11.消费选购玉石时？</div>
+            <div class="opt" data-sc="1">A.随缘偶遇，看中即入手(1分)</div>
+            <div class="opt" data-sc="2">B.被颜值配色打动，冲动选购(2分)</div>
+            <div class="opt" data-sc="3">C.看重质感温润，慢挑细选(3分)</div>
+            <div class="opt" data-sc="4">D.对比品相性价比，理智下单(4分)</div>
+        </div>
+        <!--第12题-->
+        <div class="item">
+            <div class="q-text">12.面对未知挑战？</div>
+            <div class="opt" data-sc="1">A.心生怯意，尽量避开(1分)</div>
+            <div class="opt" data-sc="2">B.满怀期待，踊跃尝试(2分)</div>
+            <div class="opt" data-sc="3">C.稳步试探，循序渐进突破(3分)</div>
+            <div class="opt" data-sc="4">D.主动攻坚，做好预案迎战(4分)</div>
+        </div>
+    </div>
+    <button id="subBtn">提交测评，查看结果</button>
+
+    <!--结果区域-->
+    <div id="resultBox">
+        <div class="res-title"></div>
+        <div class="res-desc"></div>
+        <div class="img-box"></div>
+        <div class="tip">总分：<span id="scoreNum"></span>分</div>
+    </div>
+</div>
+
+<script>
+// 选项点击选中
+let allOpt = document.querySelectorAll(".opt");
+allOpt.forEach(item => {
+    item.onclick = function() {
+        let parent = this.parentElement;
+        parent.querySelectorAll(".opt").forEach(o => o.classList.remove("active"));
+        this.classList.add("active");
+    }
+});
+
+// 提交算分与结果展示
+document.getElementById("subBtn").onclick = function() {
+    let total = 0;
+    let qList = document.querySelectorAll(".item");
+    let allDone = true;
+
+    // 检查是否全部作答并计算总分
+    qList.forEach(q => {
+        let sel = q.querySelector(".opt.active");
+        if (!sel) {
+            allDone = false;
+        } else {
+            total += Number(sel.dataset.sc);
+        }
+    });
+
+    if (!allDone) {
+        alert("还有题目没有选择，请全部答完再提交！");
+        return;
+    }
+
+    let resBox = document.getElementById("resultBox");
+    let resTitle = resBox.querySelector(".res-title");
+    let resText = resBox.querySelector(".res-desc");
+    let resImg = resBox.querySelector(".img-box");
+    document.getElementById("scoreNum").innerText = total;
+    resImg.innerHTML = "";
+
+    // 分数区间与结果匹配
+    if (total >= 12 && total <= 20) {
+        resTitle.innerText = "① 12～20分｜清冷通透型";
+        resText.innerText = "性格标签：内敛安静、佛系独处、心思通透、偏爱静谧独处\n匹配玉石：冰种玉髓细圈平安扣、细条晴水和田玉细镯、素面无雕白玉小挂坠、冰透玉髓水滴耳坠\n款式特点：极简素工、冰润通透、线条纤细素雅，无繁复雕花，适配清冷寡淡气质";
+        let arr = ["images/t1.jpg", "images/t2.jpg", "images/t3.jpg", "images/t4.jpg"];
+        arr.forEach(src => {
+            let img = document.createElement("img");
+            img.src = src;
+            img.alt = "玉石产品图";
+            resImg.appendChild(img);
+        });
+    } else if (total >= 21 && total <= 29) {
+        resTitle.innerText = "② 21～29分｜明媚鲜活型";
+        resText.innerText = "性格标签：外向阳光、热忱活泼、喜好新鲜、热爱热闹生活\n匹配玉石：阳绿翡翠小花吊坠、飘花翡翠随形玉坠、多色缠丝玛瑙手串、糖果色玛瑙圆珠耳饰\n款式特点：色泽鲜亮多彩、雕饰花鸟俏色，灵动小巧，元气氛围感";
+        let arr = ["images/m1.jpg", "images/m2.jpg", "images/m3.jpg", "images/m4.jpg"];
+        arr.forEach(src => {
+            let img = document.createElement("img");
+            img.src = src;
+            img.alt = "玉石产品图";
+            resImg.appendChild(img);
+        });
+    } else if (total >= 30 && total <= 38) {
+        resTitle.innerText = "③ 30～38分｜温柔治愈型";
+        resText.innerText = "性格标签：性情温润、共情力强、包容心软、安稳随和\n匹配玉石：藕粉和田玉圆牌玉佩、暖糖玉圆润福镯、粉糖玉平安圆锁、暖黄和田玉圆珠项链\n款式特点：圆弧饱满、暖调糯润、圆润弧面造型，无尖锐棱角，柔和治愈";
+        let arr = ["images/w1.jpg", "images/w2.jpg", "images/w3.jpg"];
+        arr.forEach(src => {
+            let img = document.createElement("img");
+            img.src = src;
+            img.alt = "玉石产品图";
+            resImg.appendChild(img);
+        });
+    } else if (total >= 39 && total <= 48) {
+        resTitle.innerText = "④ 39～48分｜飒爽独立型";
+        resText.innerText = "性格标签：干练果决、气场出众、目标感强、思想独立有主见\n匹配玉石：水墨玉棱角方牌吊坠、黑青玉几何切边手镯、墨玉棱角无事牌、黑青玉切面锁骨链\n款式特点：直线棱角、冷调深色、几何剪裁设计，利落大气，凸显飒爽气场";
+        let arr = ["images/s1.jpg", "images/s2.jpg", "images/s3.jpg"];
+        arr.forEach(src => {
+            let img = document.createElement("img");
+            img.src = src;
+            img.alt = "玉石产品图";
+            resImg.appendChild(img);
+        });
+    }
+
+    resBox.style.display = "block";
+}
+</script>
+</body>
+</html> 
